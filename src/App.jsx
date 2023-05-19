@@ -1,4 +1,4 @@
-import { Stats, OrbitControls, Circle, Environment } from '@react-three/drei'
+import { Stats, OrbitControls, Environment } from '@react-three/drei'
 import { Canvas, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
