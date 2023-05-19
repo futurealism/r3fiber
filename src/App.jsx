@@ -1,12 +1,23 @@
 import { Canvas } from '@react-three/fiber'
-import Box from './Box'
-// Note: in order to export without the curl braces, must use the default keyword
+import Polyhedron from './Polyhedron'
+import * as THREE from 'three'
+import { Stats, OrbitControls } from '@react-three/drei'
 
 export default function App() {
+  const polyhedron = [
+    new THREE.BoxGeometry(),
+    new THREE.SphereGeometry(0.785398),
+    new THREE.DodecahedronGeometry(0.785398)
+  ]
+
   return (
-    <Canvas camera={{ position: [0, 0, 2] }}>
-      <Box position={[-1.75, 0, 0]} name="A" />
-      <Box position={[-0, 1, 0]} name="B" />
+    <Canvas camera={{ position: [0, 0, 3] }}>
+      <Polyhedron position={[-0.75, -0.75, 0]} polyhedron={polyhedron} />
+      <Polyhedron position={[0.75, -0.75, 0]} polyhedron={polyhedron} />
+      <Polyhedron position={[-0.75, 0.75, 0]} polyhedron={polyhedron} />
+      <Polyhedron position={[0.75, 0.75, 0]} polyhedron={polyhedron} />
+      <Stats />
+      <OrbitControls />
     </Canvas>
   )
 }
