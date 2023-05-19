@@ -7,12 +7,20 @@ export default function App() {
 
   return (
     <Canvas camera={{ position: [-0.5, 1, 2] }} shadows>
-      <directionalLight position={[3.3, 1.0, 4.4]} castShadow />
-      <Environment preset="forest" background blur={0.05} />
+      {/* <directionalLight position={[3.3, 1.0, 4.4]} castShadow /> */}
+      <Environment
+        preset="apartment"
+        background
+        ground={{
+          height: 10,
+          radius: 115,
+          scale: 100
+        }}
+      />
       <primitive object={gltf.scene} position={[0, 1, 0]} />
       <primitive
         object={gltf.scene}
-        position={[0, 1, 0]}
+        position={[0, 0.6, 0]}
         scale={[0.01, 0.01, 0.01]}
         children-0-castShadow
       />
